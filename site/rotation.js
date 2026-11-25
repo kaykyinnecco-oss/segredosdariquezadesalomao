@@ -10,9 +10,6 @@
     return image;
   }
 
-  const pages = document.getElementById("sample-gallery");
-  pages.replaceChildren(...config.samples.map(imageFor));
-
   function buildStrip(id, entries, secondsPerItem) {
     if (!entries.length) return;
     const region = document.getElementById(id);

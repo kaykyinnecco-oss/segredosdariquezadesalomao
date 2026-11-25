@@ -91,7 +91,7 @@
   card.setAttribute("aria-labelledby", title.id);
 
   const art = element("div", "collection-covers");
-  art.innerHTML = "<picture class=\"edition-kit\"><source media=\"(min-width: 768px)\" srcset=\"assets/media/kit-desktop-800.webp 800w, assets/media/kit-desktop-1170.webp 1170w\" sizes=\"(min-width:1200px) 610px,50vw\" width=\"1170\" height=\"760\"><img loading=\"lazy\" src=\"assets/media/kit-mobile-460.webp\" srcset=\"assets/media/kit-mobile-460.webp 460w, assets/media/kit-mobile-560.webp 560w\" sizes=\"(max-height: 680px) 300px, min(98vw, 400px)\" width=\"650\" height=\"727\" alt=\"Os 777 Segredos da Riqueza de Salomão em perspectiva, com a lombada verde, dois livros bônus e um celular aberto no primeiro segredo.\"></picture>";
+  art.innerHTML = "<picture class=\"edition-kit\"><img loading=\"lazy\" src=\"assets/media/conjunto-salomao-580.webp\" srcset=\"assets/media/conjunto-salomao-580.webp 580w, assets/media/conjunto-salomao-1200.webp 1200w\" sizes=\"(min-width:768px) 180px, 42vw\" width=\"580\" height=\"336\" alt=\"Os Segredos da Riqueza de Salomão com as folhas 01, 04 e 07 em leque atrás do livro e a capa do e-book na tela do iPhone à direita.\"></picture>";
   const list = element("ul", "collection-includes");
   for (const text of [offer.mainItem, ...config.bonuses.map(book => book.title), ...offer.benefits, "2 bônus incluídos"].filter(Boolean)) {
     const line = element("li");

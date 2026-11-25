@@ -185,6 +185,7 @@
   width:var(--frame-width);height:auto;aspect-ratio:var(--frame-ratio);object-fit:contain;
   border-radius:12px;background:#e9edeb;box-shadow:0 3px 9px #142b211a;
 }
+#usage-gallery .gallery-group img {aspect-ratio:auto;object-fit:cover;border-radius:16px;}
 .gallery-track {animation:gallery-travel var(--travel-time) linear infinite;animation-play-state:paused;}
 .in-view .gallery-track {animation-play-state:running;}
 @keyframes gallery-travel {to{transform:translateX(-50%)}}
@@ -241,3 +242,10 @@
 }
 
 
+
+.sample-kit {aspect-ratio:auto;}
+.sample-kit > img {width:100%;height:auto;display:block;}
+.edition-art .edition-kit img {aspect-ratio:auto;}
+@media (max-width:767px) {
+  .collection-card {grid-template-columns:minmax(0, 44%) minmax(0,1fr);}
+}

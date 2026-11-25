@@ -9,8 +9,8 @@ window.SITE_CONFIG = {
   bonusPrices: [], // Preços avulsos comprovados, na ordem dos dois livros.
 
   productId: "biblioteca-777-salomao",
-  productName: "Os 777 Segredos da Riqueza de Salomão",
-  subtitle: "A Biblioteca da Sabedoria Financeira com um Método Prático de 7 Passos.",
+  productName: "Os Segredos da Riqueza de Salomão",
+  subtitle: "A Biblioteca da Sabedoria Financeira com 80 lições ilustradas em PDF.",
   pixelId: "2429955871112248",
   images: {
     brand: "assets/media/marca.webp",
@@ -32,11 +32,6 @@ window.SITE_CONFIG = {
     fit: "Ajustar página à tela",
     close: "Fechar leitura"
   },
-  samples: [
-    { title: "Gaste menos do que ganha", folio: "Página 03", src: "assets/media/segredo.webp", full: "assets/media/segredo-zoom.webp", width: 558, height: 789, alt: "Página ilustrada sobre como gastar menos do que se ganha, com um exemplo em reais e cinco ações para fechar o mês." },
-    { title: "Como utilizar sua biblioteca", folio: "Página 02", src: "assets/media/biblioteca.webp", full: "assets/media/biblioteca-zoom.webp", width: 558, height: 789, alt: "Página de orientação com duas formas de consultar a biblioteca e a lista dos sete passos, do orçamento do mês à revisão dos resultados." },
-    { title: "Como percorrer o método", folio: "Página 06", src: "assets/media/metodo.webp", full: "assets/media/metodo-zoom.webp", width: 558, height: 789, alt: "Página seis com instruções para escolher um passo, fazer as contas do mês e voltar ao checklist." }
-  ],
   bonuses: [
     { label: "Bônus 01", title: "Os 365 Ladrões Invisíveis do Seu Dinheiro", description: "Encontre os pequenos gastos que se repetem e escolha quais vale a pena cortar.", image: "assets/media/bonus-1.webp", width: 480, height: 679 },
     { label: "Bônus 02", title: "Os 100 Códigos da Mente Milionária", description: "Reconheça o que leva você a comprar por impulso e faça a próxima escolha com mais calma.", image: "assets/media/bonus-2.webp", width: 480, height: 679 }
@@ -45,10 +40,10 @@ window.SITE_CONFIG = {
     "badge": "PLANO COMPLETO • 2 BÔNUS • ACESSO VITALÍCIO",
     "title": "Plano Completo + 2 Bônus",
     "benefits": [
-      "7 passos para organizar suas contas do mês",
+      "Lições práticas para organizar suas contas do mês",
       "Leitura no celular e impressão em A4"
     ],
-    "cta": "Quero acessar os 777 Segredos",
+    "cta": "Quero acessar Os Segredos da Riqueza de Salomão",
     "guarantee": "Garantia de 7 dias",
     "paymentMethods": [
       {
@@ -82,62 +77,104 @@ window.SITE_CONFIG = {
         "text": "Abra o primeiro segredo no celular ou imprima a página para anotar seus gastos."
       }
     ],
-    "mainItem": "Livro principal com 777 ensinamentos"
+    "mainItem": "Livro principal com 80 lições ilustradas em PDF"
   },
   usagePhotos: [
     {
-      "image": "assets/media/leitores/leitura-01.webp",
-      "full": "assets/media/leitores/leitura-01-ampliada.webp",
-      "width": 580,
-      "height": 773,
-      "imageAlt": "Leitor consulta a capa no celular junto à página impressa do primeiro segredo.",
-      "caption": "Leitura no celular"
+      "image": "assets/media/leitores/cotidiano-01.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Páginas impressas sobre orçamento e reserva ao lado de um tablet com a capa do e-book."
     },
     {
-      "image": "assets/media/leitores/leitura-02.webp",
-      "full": "assets/media/leitores/leitura-02-ampliada.webp",
-      "width": 580,
-      "height": 773,
-      "imageAlt": "Mulher mostra no tablet a capa verde e dourada de Os 777 Segredos da Riqueza de Salomão.",
-      "caption": "A biblioteca no tablet"
+      "image": "assets/media/leitores/exemplar-6.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Mulher de blusa laranja exibe o exemplar encadernado em espiral diante de uma parede verde."
     },
     {
-      "image": "assets/media/leitores/leitura-03.webp",
-      "full": "assets/media/leitores/leitura-03-ampliada.webp",
-      "width": 580,
-      "height": 773,
-      "imageAlt": "Leitora acompanha no tablet a página ilustrada sobre gastar menos do que se ganha.",
-      "caption": "Consulta ao Segredo 01"
+      "image": "assets/media/leitores/cotidiano-02.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Casal compara no livro aberto os gastos recorrentes e o custo de uma compra parcelada."
     },
     {
-      "image": "assets/media/leitores/leitura-04.webp",
-      "full": "assets/media/leitores/leitura-04-ampliada.webp",
-      "width": 580,
-      "height": 773,
-      "imageAlt": "Homem segura uma página impressa do Segredo 01 e aponta para a ilustração.",
-      "caption": "O Segredo 01 em papel"
+      "image": "assets/media/leitores/cotidiano-03.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Homem observa quatro lições impressas e o livro encadernado sobre a mesa."
     },
     {
-      "image": "assets/media/leitores/leitura-05.webp",
-      "full": "assets/media/leitores/leitura-05-ampliada.webp",
-      "width": 445,
-      "height": 790,
-      "imageAlt": "Homem observa uma versão da biblioteca impressa e encadernada em espiral.",
-      "caption": "Páginas encadernadas"
+      "image": "assets/media/leitores/exemplar-5.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Mulher segura o livro pela borda e mostra a capa em um quarto de paredes lilás."
     },
     {
-      "image": "assets/media/leitores/leitura-06.webp",
-      "full": "assets/media/leitores/leitura-06-ampliada.webp",
-      "width": 580,
-      "height": 773,
-      "imageAlt": "Mulher mostra a capa no celular com três páginas da biblioteca impressas sobre a mesa.",
-      "caption": "Na tela e no papel"
+      "image": "assets/media/leitores/cotidiano-05.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Mulher apresenta a capa no tablet ao lado do caderno de prática e das lições impressas."
     },
     {
-      "image": "assets/media/leitores/leitura-07.webp",
-      "width": 580,
-      "height": 773,
-      "imageAlt": "Leitor consulta o livro no celular ao lado do Segredo 01 encadernado e de uma caneca de café."
+      "image": "assets/media/leitores/exemplar-4.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Mulher de óculos e blusa amarela apresenta o livro encadernado em espiral."
+    },
+    {
+      "image": "assets/media/leitores/cotidiano-06.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Mulher mostra a capa no celular com três folhas de exercícios à sua frente."
+    },
+    {
+      "image": "assets/media/leitores/cotidiano-07.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Tablet ao lado do livro aberto nas lições sobre gastos recorrentes e a primeira meta de reserva."
+    },
+    {
+      "image": "assets/media/leitores/exemplar-3.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Homem de camisa polo branca mostra a capa do livro ao lado de um notebook."
+    },
+    {
+      "image": "assets/media/leitores/cotidiano-08.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Mulher segura o celular na cozinha ao lado da lição impressa sobre o custo das parcelas."
+    },
+    {
+      "image": "assets/media/leitores/cotidiano-09.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Homem aponta no livro encadernado o exemplo de gastos que se repetem a cada semana."
+    },
+    {
+      "image": "assets/media/leitores/exemplar-2.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Mulher de blusa verde segura o livro com as duas mãos na cozinha."
+    },
+    {
+      "image": "assets/media/leitores/cotidiano-10.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Mulher aponta para a capa no tablet, com o plano de 30 dias e a meta de reserva sobre a mesa."
+    },
+    {
+      "image": "assets/media/leitores/exemplar-1.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Mulher de blusa azul mostra o livro com espiral em uma sala de paredes azuis."
+    },
+    {
+      "image": "assets/media/leitores/cotidiano-11.webp",
+      "width": 848,
+      "height": 1060,
+      "imageAlt": "Leitor consulta o celular junto ao livro aberto no exemplo de R$ 240 em quatro semanas."
     }
   ],
   testimonials: {
@@ -263,12 +300,12 @@ window.SITE_CONFIG = {
     launchLead: "Condição especial de lançamento.",
     launchEnd: "Por tempo limitado.",
     offerLink: "Ver o pacote",
-    headlineLead: "777 segredos da riqueza de Salomão",
+    headlineLead: "Os Segredos da Riqueza de Salomão",
     headlineJoin: "para",
     headlineAccent: "seguir e melhorar a sua vida financeira.",
     heroSupport: "Segredos bíblicos de Salomão em um passo a passo para consultar onde estiver e colocar as contas em ordem.",
     heroNote: "Sabedoria prática para a sua vida financeira.",
-    heroCTA: "Quero acessar os 777 segredos",
+    heroCTA: "Quero acessar Os Segredos da Riqueza de Salomão",
     ribbonMethod: "Acesso imediato · Livro completo",
     ribbonBonus: "Impressão em A4 · Baseado na Bíblia",
     ribbonExtras: "Mais 2 bônus por tempo limitado",
@@ -285,9 +322,9 @@ window.SITE_CONFIG = {
     digitalNote: "Produto digital em PDF.",
     supportLabel: "Suporte",
     whatsappLabel: "Suporte pelo WhatsApp",
-    whatsappMessage: "Olá! Vim pela página da biblioteca Os 777 Segredos da Riqueza de Salomão e tenho uma dúvida sobre a oferta.",
-    whatsappHeroMessage: "Olá! Vi a apresentação dos 777 Segredos da Riqueza de Salomão e gostaria de saber mais sobre o livro.",
-    whatsappFooterMessage: "Olá! Cheguei ao final da página dos 777 Segredos da Riqueza de Salomão e tenho uma dúvida antes de comprar.",
+    whatsappMessage: "Olá! Vim pela página da biblioteca Os Segredos da Riqueza de Salomão e tenho uma dúvida sobre a oferta.",
+    whatsappHeroMessage: "Olá! Vi a apresentação de Os Segredos da Riqueza de Salomão e gostaria de saber mais sobre o livro.",
+    whatsappFooterMessage: "Olá! Cheguei ao final da página de Os Segredos da Riqueza de Salomão e tenho uma dúvida antes de comprar.",
     privacyLabel: "Política de privacidade",
     termsLabel: "Termos de uso",
     preferencesLabel: "Preferências de privacidade",
