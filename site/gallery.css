@@ -1,0 +1,116 @@
+.sg-gallery {
+  --sg-ink: var(--ink, var(--green-800));
+  --sg-line: var(--gold-300);
+  --sg-stage: var(--bg-2);
+  min-width: 0;
+  color: var(--sg-ink);
+}
+.sg-gallery *, .sg-gallery *::before, .sg-gallery *::after { box-sizing: border-box; }
+.sg-gallery svg { display: block; width: 19px; height: 19px; }
+.sg-track {
+  display: grid;
+  width: min(100%, 335px);
+  margin: 0 auto;
+  perspective: 900px;
+}
+.sg-slide {
+  grid-area: 1 / 1;
+  min-width: 0;
+  margin: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-7px) rotateY(-4deg);
+  transform-origin: left center;
+  transition: opacity .58s ease, transform .68s cubic-bezier(.2,.74,.25,1);
+}
+.sg-slide.is-current { z-index: 1; pointer-events: auto; opacity: 1; transform: none; }
+.sg-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  color: var(--sg-ink);
+  background: var(--surface);
+  border: 1px solid var(--on-dark-muted);
+  box-shadow: 1px 2px 0 var(--surface), 2px 3px 0 var(--on-dark-muted), 3px 5px 0 var(--surface-2), 4px 6px 0 var(--on-dark-muted), 0 10px 22px -10px color-mix(in srgb, var(--green-900) 41%, transparent);
+  text-decoration: none;
+  cursor: zoom-in;
+}
+.sg-page { display: block; width: 100%; height: auto; }
+.sg-expand {
+  position: absolute;
+  bottom: 9px;
+  right: 9px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gold-300);
+  border-radius: 50%;
+  background: var(--bg-1);
+  transition: transform .4s cubic-bezier(.16,1,.3,1);
+}
+.sg-expand svg { width: 14px; height: 14px; }
+.sg-caption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 10px; padding-top: 14px; }
+.sg-folio { font-size: .75rem; font-weight: 650; color: var(--text-muted); letter-spacing: .04em; }
+.sg-title { font-family: var(--serif, Georgia, serif); font-size: 1.125rem; line-height: 1.3; }
+.sg-navigation { width: min(100%,335px); margin: 1px auto 0; display: flex; align-items: center; gap: 2px; }
+.sg-control, .rotation-control {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.rotation-control svg { width: 17px; height: 17px; }
+.sg-hint { margin: 0 auto 0 0; font-size: .875rem; line-height: 1.4; color: var(--text-muted); }
+.motion-alternative { display: none !important; }
+.sg-gallery :is(a,button):focus-visible, .rotation-control:focus-visible { outline: 2px solid var(--text-muted); outline-offset: -3px; }
+.sg-reading { overflow: hidden; }
+.sg-reader {
+  width: min(850px, calc(100% - 20px));
+  height: min(940px, calc(100% - 28px));
+  height: min(940px, calc(100dvh - 28px));
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  margin: auto;
+  color: var(--sg-ink);
+  border: 1px solid var(--gold-300);
+  border-radius: 6px;
+  background: var(--sg-stage);
+  box-shadow: 0 15px 80px color-mix(in srgb, var(--green-900) 30%, transparent);
+  overflow: hidden;
+}
+.sg-reader[open] { display: flex; flex-direction: column; }
+.sg-reader::backdrop { background: color-mix(in srgb, var(--green-900) 85%, transparent); }
+.sg-toolbar {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 4px;
+  min-height: 54px;
+  padding: 3px 6px 3px 15px;
+  background: var(--paper, var(--bg-1));
+  border-bottom: 1px solid var(--sg-line);
+}
+.sg-reader-title { flex: 1; margin: 0; font: 500 17px/1.25 Georgia, serif; }
+.sg-toolbar .sg-control { border-radius: 50%; }
+.sg-pane { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; }
+.sg-sheet { display: grid; place-items: center; padding: 12px; width: max-content; min-width: 100%; min-height: 100%; }
+.sg-full { max-width: none; height: auto; display: block; box-shadow: 0 1px 5px color-mix(in srgb, var(--green-900) 35%, transparent); cursor: zoom-in; }
+.sg-full.sg-enlarged { cursor: zoom-out; }
+
+@media (hover: hover) {
+  .sg-frame:hover .sg-expand { transform: scale(1.1); }
+  .sg-control:not(:disabled):hover { background: color-mix(in srgb, var(--green-900) 11%, transparent); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sg-slide, .sg-expand { transition: none; }
+  .motion-alternative { display: inline-grid !important; }
+}

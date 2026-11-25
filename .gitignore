@@ -1,0 +1,20 @@
+# Capturas e relatórios de revisão local
+/previas/
+
+# Configurações locais e credenciais
+.env
+.env.*
+.vercel/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependências, caches e arquivos do sistema
+node_modules/
+.cache/
+__pycache__/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini

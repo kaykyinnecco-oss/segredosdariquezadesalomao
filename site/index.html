@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0B2A20">
+  <meta name="description" content="Os 777 Segredos da Riqueza de Salomão. Biblioteca ilustrada com um método prático de sete passos e dois livros bônus em PDF.">
+  <title>Os 777 Segredos da Riqueza de Salomão | Coleção Salomão</title>
+  <link rel="icon" type="image/webp" href="assets/media/marca.webp">
+  <link rel="preload" as="image" media="(max-width: 767px)" imagesrcset="assets/media/hero-leitura-mobile-460.webp 460w, assets/media/hero-leitura-mobile-610.webp 610w" imagesizes="(max-height: 680px) 300px, min(98vw, 400px)" fetchpriority="high">
+  <link rel="preload" as="image" media="(min-width: 768px)" imagesrcset="assets/media/hero-leitura-desktop-800.webp 800w, assets/media/hero-leitura-desktop-1180.webp 1180w" imagesizes="(min-width: 1200px) 610px, 50vw" fetchpriority="high">
+  <link rel="stylesheet" href="edicao.css?v=topo-5" media="print" onload="this.media='all'">
+  <style>
+
+:root {
+  --ink:#11271f; --body:#2f4038; --muted:#52615a; --green:#146344; --deep:#103a2b;
+  --white:#fff; --wash:#f4f5f6; --line:#dce4df; --pale:#e5f1e9;
+  --shadow:0 2px 5px #1234220a,0 16px 38px -22px #173e2c48;
+  font:500 16px/1.5 system-ui,Arial,sans-serif;color:var(--body);background:var(--white);
+  scroll-padding-bottom:88px;
+}
+*,*::before,*::after {box-sizing:border-box;}
+body,h1,h2,h3,p,ul,ol,figure,blockquote {margin:0;}
+h1,h2,h3,blockquote {font-weight:750;color:var(--ink);text-wrap:balance;letter-spacing:-.04em;line-height:1.12;}
+h2 {font-size:clamp(27px,4vw,46px);}
+a,button,summary {font:inherit;color:inherit;touch-action:manipulation;}
+button,summary {cursor:pointer;}
+:focus-visible {outline:3px solid #348661;outline-offset:4px;}
+img {display:block;max-width:100%;height:auto;} [hidden]{display:none!important;}
+.wrap {width:min(1120px,calc(100% - clamp(32px,9vw,112px)));margin-inline:auto;}
+.icon {display:inline-block;width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.skip {position:fixed;z-index:10;left:12px;top:0;transform:translateY(-110%);padding:12px;background:white;}
+.skip:focus {transform:none;}
+.edition-bar {display:grid;place-items:center;min-height:32px;padding:6px 8px;background:var(--deep);color:white;text-align:center;font:700 clamp(11px,2.98vw,14px)/1.3 system-ui,sans-serif;}
+.edition-hero {background:radial-gradient(ellipse at 57% 60%,#edf1ee,transparent 60%),white;}
+.edition-opening {display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "art" "action";place-items:center;gap:12px;text-align:center;padding-block:clamp(18px,3dvh,36px) 24px;}
+.edition-heading {grid-area:intro;}
+.edition-heading h1 {font-size:clamp(28px,7.65vw,36px);line-height:1.08;max-width:20em;margin-inline:auto;}
+.headline-accent {color:var(--green);font:inherit;letter-spacing:inherit;}
+.edition-deck {font-size:16px;margin-top:10px;}
+.edition-art {grid-area:art;width:min(100%,400px,calc(43dvh * var(--kit-ratio)));--kit-ratio:calc(825 / 745);}
+.edition-kit,.edition-kit img {display:block;width:100%;height:auto;object-fit:contain;}
+.edition-art img {aspect-ratio:825/745;}
+.edition-action {grid-area:action;width:min(100%,405px);}
+.offer-facts {font-size:16px;font-weight:600;margin:0 0 10px;color:var(--body);}
+.buy {width:100%;min-height:52px;display:inline-flex;gap:10px;align-items:center;justify-content:center;position:relative;border:0;border-radius:12px;padding:12px 14px;color:white;background:#0FA04B;font-size:19px;font-weight:750;box-shadow:0 2px 0 #0a422c,0 9px 19px -10px #1453368a;transition:transform .2s ease;}
+.buy:active {transform:translateY(1px);}
+.pay-note {margin:10px auto 0;color:var(--muted);text-align:center;font-size:16px;line-height:1.4;}
+.pay-note {text-wrap:balance;} .payment-label {white-space:nowrap;}
+.pay-note .icon {vertical-align:-.14em;}
+.proof-block {padding:19px 0;background:var(--wash);border-block:1px solid var(--line);}
+.proof-block figure {border-left:3px solid #50896a;padding-left:16px;}
+.proof-block blockquote {font-size:clamp(18px,2.2vw,26px);letter-spacing:-.025em;}
+.proof-block figcaption {font-size:14px;color:var(--muted);margin-top:5px;}
+@media(max-width:767px) and (max-height:690px) {
+  .edition-opening {gap:7px;padding-block:12px 16px;}
+  .edition-art {width:min(100%,390px,calc(39dvh * var(--kit-ratio)));}
+}
+@media(min-width:768px) {
+  .edition-opening {grid-template-columns:1fr 1.04fr;grid-template-areas:"intro art" "action art";gap:22px 24px;align-content:center;justify-items:start;text-align:left;padding-block:clamp(44px,5.5vw,84px);}
+  .edition-heading {align-self:end;}
+  .edition-heading h1 {font-size:clamp(35px,3.9vw,58px);}
+  .edition-deck {font-size:clamp(16px,1.4vw,20px);margin-top:16px;}
+  .edition-action {align-self:start;}
+  .edition-art {width:100%;}
+  .edition-art img {aspect-ratio:1250/775;}
+  .edition-action .pay-note {text-align:left;}
+  .proof-block figure {display:flex;align-items:baseline;gap:22px;}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important;}}
+
+.edition-opening {grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "art" "action";justify-items:center;text-align:center;}
+.edition-art {width:min(100%,400px,calc(42dvh * var(--kit-ratio)));}
+.edition-action {width:min(100%,590px);}
+.edition-deck {margin:0 auto 14px;}
+.hero-assurance {display:flex;align-items:center;justify-content:center;gap:6px;margin:4px auto;}
+.hero-trust {display:flex;align-items:center;gap:4px;white-space:nowrap;font-size:10.5px;line-height:14px;color:#9CA3AF;font-weight:500;}
+.hero-trust span {display:inline-flex;align-items:center;gap:2px;}
+.hero-trust svg {width:12px;height:12px;fill:currentColor;stroke:none;}
+.avatar-row {display:flex;flex:none;}
+.avatar-row img,.proof-block img {object-fit:cover;aspect-ratio:1;border-radius:100%;border:2px solid white;}
+.avatar-row img {width:20px;height:20px;border-width:1.5px;}
+.avatar-row img+img {margin-left:-7px;}
+@media(max-width:767px) {
+  .edition-bar {font-size:clamp(10px,2.7vw,12px);}
+  .edition-heading h1 {font-size:clamp(18px,5.65vw,29px);line-height:1.1;max-width:none;}
+  .edition-deck {font-size:15px;}
+}
+@media(max-width:767px) and (max-height:700px) {
+  .edition-art {width:min(100%,calc(34dvh * var(--kit-ratio)));}
+}
+.proof-block {background:var(--deep);color:white;}
+.proof-block figure {border:none;padding:0;display:grid;grid-template-columns:44px auto;align-items:center;justify-content:center;gap:2px 14px;}
+.proof-block img {grid-row:span 2;}
+.proof-block blockquote,.proof-block figcaption {color:white;margin:0;}
+@media(min-width:768px){.edition-opening {padding-block:32px;gap:18px;}.edition-heading h1 {max-width:24em;font-size:clamp(36px,3.25vw,48px);}.edition-art {width:min(58vw,610px);}.edition-action .buy {max-width:420px;}}
+  </style>
+  <script defer src="config.js?v=plano-completo-2"></script>
+  <script defer src="app.js?v=oferta-2"></script>
+  <script defer src="countdown.js?v=oferta"></script>
+  <script defer src="commerce.js"></script>
+</head>
+<body>
+  <a class="skip" href="#principal">Pular para o conteúdo</a>
+  <!-- Símbolos da biblioteca Lucide, distribuídos localmente. -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden"><defs>
+    <symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+    <symbol id="i-shopping-bag" viewBox="0 0 24 24"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></symbol>
+    <symbol id="i-lock-keyhole" viewBox="0 0 24 24"><circle cx="12" cy="16" r="1"/><rect x="3" y="10" width="18" height="12" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></symbol>
+    <symbol id="i-book-open-text" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M16 12h2"/><path d="M16 8h2"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/><path d="M6 12h2"/><path d="M6 8h2"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8M12 8v13"/><path d="M12 8H7.5A2.5 2.5 0 1 1 10 5.5L12 8Zm0 0h4.5A2.5 2.5 0 1 0 14 5.5L12 8Z"/></symbol>
+  </defs></svg>
+  <header class="edition-bar"><span>CONDIÇÃO ESPECIAL DE LANÇAMENTO <span class="launch-dot" aria-hidden="true">•</span> POR TEMPO LIMITADO</span></header>
+  <main id="principal">
+    <section class="hero edition-hero" aria-labelledby="title"><div class="edition-opening wrap">
+      <div class="edition-heading">
+        <h1 id="title">Seu dinheiro rende menos do que deveria? 7 passos simples da sabedoria de Salomão para <span class="headline-accent">organizar, economizar e multiplicar.</span></h1>
+        </div>
+      <figure class="edition-art"><picture class="edition-kit"><source media="(min-width: 768px)" srcset="assets/media/hero-leitura-desktop-800.webp 800w, assets/media/hero-leitura-desktop-1180.webp 1180w" sizes="(min-width:1200px) 610px,50vw" width="1250" height="775"><img id="hero-cover" fetchpriority="high" src="assets/media/hero-leitura-mobile-460.webp" srcset="assets/media/hero-leitura-mobile-460.webp 460w, assets/media/hero-leitura-mobile-610.webp 610w" sizes="(max-height: 680px) 300px, min(98vw, 400px)" width="825" height="745" alt="Livro em pé com a capa e a lombada de Os 777 Segredos da Riqueza de Salomão, três páginas impressas e um celular aberto no Segredo 01."></picture></figure>
+      <div class="edition-action"><p class="edition-deck">Princípios de Provérbios e Eclesiastes transformados em um passo a passo simples pra você consultar e melhorar a sua vida financeira.</p>
+        <button type="button" class="buy" data-buy>Quero os 777 Segredos <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></button>
+        <div class="hero-assurance">
+          <div class="avatar-row" aria-hidden="true"><img loading="lazy" width="40" height="40" src="assets/media/perfis/400/surfe.webp" alt="Rapaz surfando no mar"><img loading="lazy" width="40" height="40" src="assets/media/perfis/400/bahia.webp" alt="Rapaz de barba sorrindo ao ar livre"><img loading="lazy" width="40" height="40" src="assets/media/perfis/400/retrato.webp" alt="Mulher sorrindo entre árvores"><img loading="lazy" width="40" height="40" src="assets/media/perfis/400/sofa.webp" alt="Mulher de óculos sentada no sofá"><img loading="lazy" width="40" height="40" src="assets/media/perfis/400/rosto.webp" alt="Retrato de um homem de barba"><img loading="lazy" width="40" height="40" src="assets/media/perfis/400/selfie.webp" alt="Mulher de cabelo cacheado em uma selfie ao ar livre"></div>
+          <p class="hero-trust">
+            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 1 3 14h7.9l-1 9L21 9.4h-8.2z"/></svg>Acesso imediato</span>
+            <span aria-hidden="true">•</span>
+            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 1.8 3.2 5v6.3c0 5.2 4 8.9 8.8 11 4.8-2.1 8.8-5.8 8.8-11V5L12 1.8Zm-1.3 13.9-4-4 1.6-1.6 2.4 2.4 5-5 1.6 1.6-6.6 6.6Z"/></svg>7 dias de garantia</span>
+          </p>
+        </div>
+      </div>
+    </div></section>
+    <section class="proof-block" aria-label="Feedback de João Pedro">
+      <figure class="wrap"><img loading="lazy" width="44" height="44" src="assets/media/perfis/400/joao-pedro.webp" alt="Foto de perfil de João Pedro no depoimento"><blockquote>“O passo a passo é muito claro e prático.”</blockquote><figcaption>João Pedro</figcaption></figure>
+    </section>
+    <section id="leitura" class="edition-section"><div class="wrap"><h2>Veja como usar no dia a dia</h2><div id="usage-gallery" role="group" class="gallery-strip photos" aria-label="Fotos do material em uso"></div></div></section>
+    <section id="amostra" class="edition-section" aria-labelledby="sample-title">
+      <div class="wrap"><h2 id="sample-title">O que vou receber</h2>
+        <div class="sample-card">
+          <figure class="sample-kit" role="img" aria-label="Três páginas ilustradas da coleção, com o livro à esquerda e o PDF aberto no celular à direita.">
+            <div id="sample-gallery" class="sample-stack" aria-hidden="true"></div>
+            <div class="sample-book"><img loading="lazy" src="assets/media/capa-mobile.webp" alt=""></div>
+            <div class="sample-phone"><img loading="lazy" src="assets/media/segredo.webp" alt=""></div>
+          </figure>
+          <ul class="sample-benefits">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Passo a passo simples</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>777 segredos de Salomão</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Material para imprimir em A4</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Acesso de qualquer lugar, em qualquer dispositivo</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>2 bônus surpresa 🎁</span></li>
+          </ul>
+          <p class="sample-prompt">Quer saber quais são os 2 bônus? Continue descendo e descubra.</p>
+          <a class="buy sample-link" href="#bonus">Ver os 2 bônus inclusos</a>
+        </div>
+      </div>
+    </section>
+    <section id="entrega" class="edition-section"><div class="wrap"><div id="delivery-content"></div>
+    </div></section>
+    <section class="bonuses edition-section" id="bonus"><div class="wrap"><h2 class="section-title">Incluído no pacote. Mais 2 bônus.</h2><div id="bonus-list"></div></div></section>
+    <section id="feedback" class="feedback edition-section"><div class="wrap"><h2 class="section-title" id="feedback-title">O que dizem sobre o material</h2><div id="feedback-gallery" role="group" class="gallery-strip prints" aria-label="Conversas de leitores"></div></div></section>
+    <section class="urgency-section" aria-labelledby="urgency-title"><div class="urgency-card"><h2 id="urgency-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg> ÚLTIMA CHANCE: OFERTA TERMINA EM</h2><div class="digits" role="timer" aria-live="off"><span class="time-unit"><b data-unit="hours">00</b><small>horas</small></span><span class="colon" aria-hidden="true">:</span><span class="time-unit"><b data-unit="minutes">00</b><small>min</small></span><span class="colon" aria-hidden="true">:</span><span class="time-unit"><b data-unit="seconds">00</b><small>seg</small></span></div></div></section>
+    <section id="plano" aria-label="Oferta da coleção"></section>
+    <section class="help edition-section"><div class="help-inner wrap"><div id="garantia" class="guarantee-card"><img loading="lazy" data-image="seal" width="192" height="192" alt="Garantia de sete dias"><div><h2>7 dias de garantia</h2><p>Abra os livros, leia o primeiro segredo e experimente o método. Você tem sete dias após a compra para solicitar o reembolso pelo canal informado no comprovante.</p></div></div>
+    <div id="faq" class="faq"><h2 class="section-title">Perguntas frequentes</h2><div id="faq-list"></div></div></div></section>
+    <section class="closing edition-section"><div class="wrap"><h2>Comece hoje. R$ 19,99, acesso imediato, 7 dias de garantia.</h2><button type="button" class="buy" data-buy>Quero organizar minhas contas</button><p class="pay-note">Acesso imediato por e-mail · <span class="payment-label">Pagamento seguro</span></p></div></section>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><a class="brand" href="#principal" aria-label="Coleção Salomão, início">Coleção Salomão</a><p>Produto digital em PDF.</p><p>K Agency — <a href="mailto:kagency@gmail.com">kagency@gmail.com</a></p></div><nav id="footer-links" aria-label="Suporte e informações"><a data-local-info="terms" href="#termos">Termos de uso</a><a data-local-info="privacy" href="#privacidade">Privacidade</a><button type="button" data-privacy-settings>Preferências de privacidade</button></nav></div></footer>
+  <div id="purchase-dock" hidden inert><div><strong data-price>R$ 19,99</strong><small>Pagamento único</small></div><button type="button" class="buy" data-buy>Quero acessar </button></div>
+  <dialog class="privacy-dialog" id="termos" aria-labelledby="terms-title"><form method="dialog"><button class="close" aria-label="Fechar termos">×</button></form><h2 id="terms-title">Termos de uso</h2><p>A Coleção Salomão reúne três livros digitais para leitura pessoal e impressão em A4. O pagamento é único, de R$ 19,99. O acesso é enviado após a aprovação da compra.</p><p>Para pedir reembolso em até sete dias ou tirar dúvidas sobre a entrega, use o contato indicado no comprovante de pagamento.</p></dialog>
+  <dialog class="privacy-dialog" id="privacidade" aria-labelledby="policy-title"><form method="dialog"><button class="close" aria-label="Fechar política">×</button></form><h2 id="policy-title">Privacidade</h2><p>A página guarda sua preferência de medição neste navegador. Se você permitir, o Pixel da Meta registra a visualização do produto e a ida ao checkout.</p><p>O checkout da Cakto recebe os parâmetros de campanha presentes no link. Você informa seu e-mail e os dados de pagamento no checkout. Para mudar sua escolha sobre a medição, abra as preferências no rodapé.</p></dialog>
+  <div id="checkout-notice" class="notice" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+  <dialog class="privacy-dialog" id="privacy-dialog" aria-labelledby="privacy-title">
+    <button type="button" class="close" aria-label="Fechar preferências" data-close-privacy><svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg></button>
+    <h2 id="privacy-title" data-copy="preferencesLabel">Preferências de privacidade</h2>
+    <p data-copy="preferencesInfo"></p><p class="consent-status" data-consent-status></p>
+    <div class="privacy-actions"><button type="button" data-consent="deny" data-copy="deny"></button><button type="button" data-consent="allow" data-copy="allow"></button></div>
+  </dialog>
+  <noscript><p class="noscript">Ative o JavaScript para ver a coleção e acessar a compra.</p></noscript>
+</body>
+</html>
+
+
+
