@@ -49,13 +49,14 @@
       image.width = page.width || 1072;
       image.height = page.height || 1516;
       image.loading = "lazy";
+      image.src = page.src;
       image.decoding = "async";
       const expand = element("span", "sg-expand");
-      expand.innerHTML = icon("expand");
+      expand.innerHTML = icon("plus");
       link.append(image, expand);
       const caption = element("figcaption", "sg-caption");
-      if (page.folio) caption.append(element("span", "sg-folio", page.folio));
-      caption.append(element("span", "sg-title", page.title));
+      const heading = element("strong", "sg-title", page.folio + " · " + page.title);
+      caption.append(heading, element("span", "sg-description", page.description));
       figure.append(link, caption);
       track.append(figure);
       link.addEventListener("click", event => {
@@ -66,70 +67,125 @@
       return { figure, link, image };
     });
 
-    function loadThumbnail(index) {
-      const image = slides[index].image;
-      if (!image.hasAttribute("src")) {
-        const src = samples[index].src;
-        image.srcset = src.replace(".webp","-compacta.webp") + " 380w, " + src + " 558w";
-        image.sizes = "(max-width: 767px) 85vw, 385px";
-        image.src = src;
-      }
-    }
-    let active = 0;
-    function display(index) {
-      active = (index + slides.length) % slides.length;
-      gallery.style.setProperty("--page-index", active);
-      slides.forEach(({ figure, link }, i) => {
-        const current = i === active;
-        figure.classList.toggle("is-current", current);
-        figure.inert = !current;
-        figure.setAttribute("aria-hidden", String(!current));
-        link.tabIndex = current ? 0 : -1;
-      });
-    }
-    // A folha é composta por texto pequeno. As versões ampliadas só são
-    // solicitadas pelo leitor quando ele toca na página.
-    function preparePages() {
-      loadThumbnail(active);
-      if (samples.length > 1) loadThumbnail((active + 1) % slides.length);
-    }
-    if ("IntersectionObserver" in window) {
-      const preload = new IntersectionObserver(entries => {
-        if (!entries.some(entry => entry.isIntersecting)) return;
-        preparePages();
-        preload.disconnect();
-      }, { rootMargin: "200px 0px" });
-      preload.observe(track);
-    } else preparePages();
-
-    function change(direction) {
-      display(active + direction);
-      preparePages();
-    }
-    display(0);
-    window.bindGalleryDrag(track, direction => change(direction));
+    const desktop = matchMedia("(min-width: 1024px)");
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+    const viewport = element("div", "sg-viewport");
+    track.before(viewport);
+    viewport.append(track);
     const navigation = element("div", "sg-navigation");
-    navigation.append(element("p", "sg-hint", labels.hint));
-    if (slides.length > 1) {
-      const previous = button("previous", labels.previous);
-      const next = button("next", labels.next);
-      for (const control of [previous, next]) {
-        control.classList.add("motion-alternative");
-        control.setAttribute("aria-controls", track.id);
-      }
-      previous.addEventListener("click", () => change(-1));
-      next.addEventListener("click", () => change(1));
-      navigation.append(previous, next);
-      window.attachGalleryRotation(gallery, navigation, 6500, () => change(1));
-    }
-    gallery.append(navigation);
-    track.addEventListener("keydown", event => {
-      if (event.altKey || event.ctrlKey || event.metaKey) return;
-      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-      event.preventDefault();
-      change(event.key === "ArrowLeft" ? -1 : 1);
-      slides[active].link.focus({ preventScroll: true });
+    navigation.setAttribute("aria-label", labels.region);
+    const dots = samples.map((page, i) => {
+      const dot = element("button", "sg-dot");
+      dot.type = "button";
+      dot.setAttribute("aria-label", page.folio + " · " + page.title);
+      dot.addEventListener("click", () => { select(i); schedule(2000); });
+      navigation.append(dot);
+      return dot;
     });
+    gallery.append(navigation);
+
+    // Cópias nas extremidades permitem atravessar 07 → 01 sem voltar pelo trilho.
+    function edgeSlide(i) {
+      const copy = slides[i].figure.cloneNode(true);
+      copy.classList.add("sg-copy");
+      copy.setAttribute("aria-hidden", "true");
+      const link = copy.querySelector("a");
+      link.tabIndex = -1;
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        select(i);
+        openReader(i, slides[i].link);
+      });
+      return copy;
+    }
+    track.prepend(edgeSlide(slides.length - 1));
+    track.append(edgeSlide(0));
+    let active = 0;
+    let timer, settleTimer, drag;
+    let visible = false, hovered = false, suppressClick = false;
+    function snap() {
+      clearTimeout(settleTimer);
+      track.classList.add("sg-instant");
+      track.style.setProperty("--position", active + 1);
+      track.getBoundingClientRect();
+      track.classList.remove("sg-instant");
+    }
+    function select(index) {
+      snap();
+      active = (index + slides.length) % slides.length;
+      track.style.setProperty("--position", index + 1);
+      slides.forEach(({figure, link}, i) => {
+        figure.classList.toggle("is-current", i === active);
+        link.tabIndex = desktop.matches || i === active ? 0 : -1;
+        dots[i].setAttribute("aria-current", String(i === active));
+      });
+      track.firstElementChild.classList.toggle("is-current", active === slides.length - 1);
+      track.lastElementChild.classList.toggle("is-current", active === 0);
+      if (index !== active) settleTimer = setTimeout(snap, reduced.matches ? 0 : 620);
+    }
+    function schedule(delay = 3500) {
+      clearTimeout(timer);
+      if (!visible || reduced.matches || hovered || drag || dialog.open || document.hidden) return;
+      timer = setTimeout(() => { select(active + 1); schedule(); }, delay);
+    }
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      schedule();
+    }).observe(viewport);
+    new IntersectionObserver(([entry], observer) => {
+      if (entry.isIntersecting) {
+        gallery.closest("section#amostra").classList.add("sample-enter");
+        observer.disconnect();
+      }
+    }).observe(document.getElementById("amostra"));
+    gallery.addEventListener("pointerenter", e => {
+      if (e.pointerType === "mouse") { hovered = true; clearTimeout(timer); }
+    });
+    gallery.addEventListener("pointerleave", e => {
+      if (e.pointerType === "mouse") { hovered = false; schedule(2000); }
+    });
+    track.addEventListener("dragstart", e => e.preventDefault());
+    track.addEventListener("pointerdown", e => {
+      if (!e.isPrimary || e.button !== 0) return;
+      clearTimeout(timer);
+      snap();
+      suppressClick = false;
+      drag = {id:e.pointerId, x:e.clientX};
+    });
+    track.addEventListener("pointermove", e => {
+      if (drag?.id !== e.pointerId) return;
+      const dx = e.clientX - drag.x;
+      if (Math.abs(dx) < 8 && !suppressClick) return;
+      suppressClick = true;
+      track.setPointerCapture(e.pointerId);
+      track.classList.add("sg-instant");
+      track.style.setProperty("--drag", Math.max(-track.clientWidth*.78, Math.min(track.clientWidth*.78, dx)) + "px");
+    });
+    function release(e) {
+      if (drag?.id !== e.pointerId) return;
+      const dx = e.clientX - drag.x;
+      drag = null;
+      track.classList.remove("sg-instant");
+      track.style.removeProperty("--drag");
+      if (e.type === "pointerup" && Math.abs(dx) > 30) select(active + (dx < 0 ? 1 : -1));
+      schedule(2000);
+    }
+    window.addEventListener("pointerup", release);
+    window.addEventListener("pointercancel", release);
+    track.addEventListener("click", e => {
+      if (suppressClick && e.detail) { e.preventDefault(); e.stopImmediatePropagation(); suppressClick = false; }
+    }, true);
+    desktop.addEventListener("change", () => select(active));
+    reduced.addEventListener("change", () => schedule());
+    document.addEventListener("visibilitychange", () => schedule());
+    gallery.addEventListener("keydown", e => {
+      if (dialog.open || !["ArrowLeft","ArrowRight"].includes(e.key)) return;
+      e.preventDefault();
+      select(active + (e.key === "ArrowRight" ? 1 : -1));
+      slides[active].link.focus({preventScroll:true});
+      schedule(2000);
+    });
+    select(0);
 
     const dialog = element("dialog", "sg-reader");
     dialog.setAttribute("aria-labelledby", "sg-reader-title");
@@ -139,6 +195,11 @@
     const zoom = button("plus", labels.zoom);
     const close = button("close", labels.close);
     close.autofocus = true;
+    dialog.addEventListener("keydown", event => {
+      if (event.key !== "Tab") return;
+      event.preventDefault();
+      (document.activeElement === zoom ? close : zoom).focus();
+    });
     const pane = element("div", "sg-pane");
     const sheet = element("div", "sg-sheet");
     const fullImage = element("img", "sg-full");
@@ -167,6 +228,7 @@
     }
     function openReader(index, link) {
       if (dialog.open) return;
+      clearTimeout(timer);
       invokingLink = link;
       pageIndex = index;
       zoomed = false;
@@ -206,12 +268,13 @@
     zoom.addEventListener("click", toggleZoom);
     close.addEventListener("click", () => dialog.close());
     dialog.addEventListener("click", event => {
-      if (event.target === dialog) dialog.close();
+      if ([dialog, pane, sheet].includes(event.target)) dialog.close();
     });
     dialog.addEventListener("close", () => {
       document.documentElement.classList.remove("sg-reading");
       fullImage.removeAttribute("src");
       invokingLink?.focus({ preventScroll: true });
+      schedule(2000);
     });
     if ("ResizeObserver" in window) new ResizeObserver(sizeReader).observe(pane);
     else window.addEventListener("resize", sizeReader);

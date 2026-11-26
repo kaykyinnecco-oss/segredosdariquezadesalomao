@@ -22,6 +22,11 @@ window.SITE_CONFIG = {
     seal: "assets/media/garantia.webp"
   },
   guaranteeEnabled: true,
+  samples: [
+    { folio: "Lição 01", description: "Descubra quanto sobra no mês.", title: "Gaste menos do que ganha", src: "assets/media/folheie-01.webp", full: "assets/media/folheie-01-original.webp", width: 949, height: 1343 },
+    { folio: "Lição 04", description: "Evite a compra por impulso.", title: "Faça uma pausa antes de comprar", src: "assets/media/folheie-04.webp", full: "assets/media/folheie-04-original.webp", width: 950, height: 1342 },
+    { folio: "Lição 07", description: "Dê o primeiro passo da sua reserva.", title: "Comece pela primeira meta de reserva", src: "assets/media/folheie-07.webp", full: "assets/media/folheie-07-original.webp", width: 950, height: 1342 }
+  ],
   galleryLabels: {
     region: "Páginas de amostra",
     hint: "Toque na página para ampliar.",
