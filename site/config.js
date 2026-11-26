@@ -1,6 +1,6 @@
 /* Edite este arquivo para atualizar a oferta. Valores monetários usam ponto decimal. */
 window.SITE_CONFIG = {
-  CHECKOUT_URL: "",
+  CHECKOUT_URL: "https://pay.cakto.com.br/3cc7ew3_1376854",
   price: 19.99,
   currency: "BRL",
   // Use somente se a comparação puder ser comprovada. Ex.: { value: 24.99, label: "Preço anterior" }.
