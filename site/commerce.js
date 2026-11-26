@@ -36,7 +36,10 @@
 
   // Fila do código base da Meta. O primeiro pedido à Meta só ocorre após o aceite.
   function loadPixel() {
-    if (window.fbq) return window.fbq;
+    if (window.fbq) {
+      if (window.fbq.callMethod) startMeasurement();
+      return;
+    }
     function fbq() {
       if (fbq.callMethod) fbq.callMethod.apply(fbq, arguments);
       else fbq.queue.push(arguments);
@@ -50,30 +53,29 @@
     const script = document.createElement("script");
     script.async = true;
     script.src = "https://connect.facebook.net/en_US/fbevents.js";
+    script.addEventListener("load", startMeasurement, { once: true });
     document.head.append(script);
-    return fbq;
+  }
+
+  function startMeasurement() {
+    if (preference !== "allow" || pixelInitialized) return;
+    const fbq = window.fbq;
+    fbq("consent", "grant");
+    fbq("set", "autoConfig", false, pixelId);
+    fbq("init", pixelId);
+    pixelInitialized = true;
+    fbq("trackSingle", pixelId, "PageView");
+    fbq("trackSingle", pixelId, "ViewContent", productData());
   }
 
   function applyPreference(value) {
     if (value === preference) return;
     preference = value;
-    if (value !== "allow") {
-      if (pixelInitialized) window.fbq("consent", "revoke");
-      return;
-    }
-    if (!/^\d+$/.test(pixelId)) return;
-    const fbq = loadPixel();
     if (pixelInitialized) {
-      fbq("consent", "grant");
-      return;
+      window.fbq("consent", value === "allow" ? "grant" : "revoke");
+    } else if (value === "allow" && /^\d+$/.test(pixelId)) {
+      loadPixel();
     }
-    fbq("consent", "revoke");
-    fbq("set", "autoConfig", false, pixelId);
-    fbq("init", pixelId);
-    pixelInitialized = true;
-    fbq("consent", "grant");
-    fbq("trackSingle", pixelId, "PageView");
-    fbq("trackSingle", pixelId, "ViewContent", productData());
   }
 
   function updateStatus() {
