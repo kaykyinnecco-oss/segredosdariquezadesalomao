@@ -164,6 +164,8 @@
     updateStatus();
   });
 
-  applyPreference(readPreference());
+  const savedPreference = readPreference();
+  applyPreference(savedPreference);
   updateStatus();
+  if (savedPreference === null && /^\d+$/.test(pixelId)) dialog?.showModal();
 })();
