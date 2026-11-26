@@ -186,84 +186,132 @@ window.SITE_CONFIG = {
     enabled: true,
     entries: [
       {
-        "name": "João Pedro",
-        "city": "",
-        "image": "assets/media/feedbacks/conversa-01.webp",
-        "full": "assets/media/feedbacks/conversa-01-ampliada.webp",
-        "width": 445,
-        "height": 790,
-        "imageAlt": "Print de conversa em que o leitor comenta a clareza do passo a passo e relata ter começado a separar uma reserva.",
-        "caption": "Conversa sobre leitura e organização financeira"
+        "name": "Ana Oliveira",
+        "image": "assets/media/feedbacks/produto-atual-01.webp",
+        "full": "assets/media/feedbacks/produto-atual-01.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de Ana Oliveira sobre a primeira meta de reserva."
       },
       {
-        "name": "Marcos Silva",
-        "city": "",
-        "image": "assets/media/feedbacks/conversa-02.webp",
-        "full": "assets/media/feedbacks/conversa-02-ampliada.webp",
-        "width": 445,
-        "height": 790,
-        "imageAlt": "Print de conversa sobre organizar as contas, acompanhado de uma foto das folhas impressas.",
-        "caption": "Conversa sobre a impressão das folhas"
+        "name": "João Souza",
+        "image": "assets/media/feedbacks/produto-atual-02.webp",
+        "full": "assets/media/feedbacks/produto-atual-02.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de João Souza sobre os gastos que se repetem."
       },
       {
-        "name": "Rafael Souza",
-        "city": "",
-        "image": "assets/media/feedbacks/conversa-03.webp",
-        "full": "assets/media/feedbacks/conversa-03-ampliada.webp",
-        "width": 445,
-        "height": 790,
-        "imageAlt": "Print de conversa com uma foto da capa no tablet e relato sobre rever despesas e organizar uma reserva.",
-        "caption": "Conversa sobre a consulta digital"
+        "name": "Júlia Lima",
+        "image": "assets/media/feedbacks/produto-atual-03.webp",
+        "full": "assets/media/feedbacks/produto-atual-03.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de Júlia Lima sobre o material principal e os bônus."
       },
       {
-        "name": "Sara Cristina",
-        "city": "",
-        "image": "assets/media/feedbacks/conversa-04.webp",
-        "full": "assets/media/feedbacks/conversa-04-ampliada.webp",
-        "width": 445,
-        "height": 790,
-        "imageAlt": "Print de conversa sobre colocar em prática a orientação de gastar menos do que se ganha.",
-        "caption": "Conversa sobre o primeiro passo"
+        "name": "Pedro Alves",
+        "image": "assets/media/feedbacks/produto-atual-04.webp",
+        "full": "assets/media/feedbacks/produto-atual-04.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de Pedro Alves sobre a comparação entre parcela e preço total."
       },
       {
-        "name": "Ana Paula Ferreira",
-        "city": "",
-        "image": "assets/media/feedbacks/conversa-05.webp",
-        "full": "assets/media/feedbacks/conversa-05-ampliada.webp",
-        "width": 445,
-        "height": 790,
-        "imageAlt": "Print de conversa com foto do livro e da página impressa e relato sobre a revisão dos gastos.",
-        "caption": "Conversa sobre os primeiros passos"
+        "name": "Lucas Costa",
+        "image": "assets/media/feedbacks/produto-atual-05.webp",
+        "full": "assets/media/feedbacks/produto-atual-05.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de Lucas Costa sobre a leitura no tablet."
       },
       {
-        "name": "Patrícia Souza",
-        "city": "",
-        "image": "assets/media/feedbacks/conversa-06.webp",
-        "full": "assets/media/feedbacks/conversa-06-ampliada.webp",
-        "width": 445,
-        "height": 790,
-        "imageAlt": "Print de conversa com o exercício de listar gastos que podem ser reduzidos ou eliminados.",
-        "caption": "Conversa sobre a lista de gastos"
+        "name": "Juliana Rodrigues",
+        "image": "assets/media/feedbacks/produto-atual-06.webp",
+        "full": "assets/media/feedbacks/produto-atual-06.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de Juliana Rodrigues sobre a capa e a lição sobre gastos recorrentes."
       },
       {
-        "name": "João Pedro",
-        "city": "",
-        "image": "assets/media/feedbacks/conversa-07.webp",
-        "full": "assets/media/feedbacks/conversa-07-ampliada.webp",
-        "width": 445,
-        "height": 790,
-        "imageAlt": "Print de conversa com o Segredo 01 impresso e relato sobre ajustes no orçamento.",
-        "caption": "Conversa sobre a prática com o PDF"
+        "name": "Maria Silva",
+        "image": "assets/media/feedbacks/produto-atual-07.jpg",
+        "full": "assets/media/feedbacks/produto-atual-07.jpg",
+        "width": 909,
+        "height": 1597,
+        "imageAlt": "Conversa de Maria Silva sobre a organização financeira e a reserva."
       },
       {
-        "name": "Carlos Henrique",
-        "city": "",
-        "image": "assets/media/feedbacks/conversa-08.webp",
-        "full": "assets/media/feedbacks/conversa-08-ampliada.webp",
-        "width": 445,
-        "height": 790,
-        "imageAlt": "Print de conversa com uma foto da capa e relato sobre o uso do método no dia a dia.",
-        "caption": "Conversa sobre a aplicação no dia a dia"
+        "name": "Francisca Pereira",
+        "image": "assets/media/feedbacks/produto-atual-08.jpg",
+        "full": "assets/media/feedbacks/produto-atual-08.jpg",
+        "width": 966,
+        "height": 1481,
+        "imageAlt": "Conversa de Francisca Pereira sobre disciplina financeira."
+      },
+      {
+        "name": "Antônio Ferreira",
+        "image": "assets/media/feedbacks/produto-atual-09.webp",
+        "full": "assets/media/feedbacks/produto-atual-09.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de Antônio Ferreira sobre a leitura no celular."
+      },
+      {
+        "name": "André Lima",
+        "image": "assets/media/feedbacks/produto-atual-10.webp",
+        "full": "assets/media/feedbacks/produto-atual-10.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de André Lima sobre o plano de 30 dias."
+      },
+      {
+        "name": "Patrícia Gomes",
+        "image": "assets/media/feedbacks/produto-atual-11.webp",
+        "full": "assets/media/feedbacks/produto-atual-11.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de Patrícia Gomes sobre o limite para o dinheiro livre."
+      },
+      {
+        "name": "Mariana Costa",
+        "image": "assets/media/feedbacks/produto-atual-12.webp",
+        "full": "assets/media/feedbacks/produto-atual-12.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de Mariana Costa sobre as 80 lições e os bônus."
+      },
+      {
+        "name": "Bruno Carvalho",
+        "image": "assets/media/feedbacks/produto-atual-13.webp",
+        "full": "assets/media/feedbacks/produto-atual-13.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de Bruno Carvalho sobre a variedade das lições."
+      },
+      {
+        "name": "Diego Martins",
+        "image": "assets/media/feedbacks/produto-atual-14.webp",
+        "full": "assets/media/feedbacks/produto-atual-14.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de Diego Martins sobre os livros inclusos."
+      },
+      {
+        "name": "Patrícia Gomes",
+        "image": "assets/media/feedbacks/produto-atual-15.webp",
+        "full": "assets/media/feedbacks/produto-atual-15.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de Patrícia Gomes sobre o livro aberto no plano de 30 dias."
+      },
+      {
+        "name": "André Lima",
+        "image": "assets/media/feedbacks/produto-atual-16.webp",
+        "full": "assets/media/feedbacks/produto-atual-16.webp",
+        "width": 941,
+        "height": 1672,
+        "imageAlt": "Conversa de André Lima sobre o acesso ao material."
       }
     ]
   },
