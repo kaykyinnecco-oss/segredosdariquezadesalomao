@@ -240,7 +240,7 @@
 
 
 .sample-kit {aspect-ratio:auto;}
-.sample-kit > img {width:100%;height:auto;display:block;}
+.sample-kit picture,.sample-kit img {width:100%;height:auto;display:block;}
 .edition-art .edition-kit img {aspect-ratio:auto 580/336;}
 @media (max-width:767px) {
   .collection-card {grid-template-columns:minmax(0, 44%) minmax(0,1fr);}
@@ -265,7 +265,7 @@
   .edition-section,#amostra.edition-section {padding-block:var(--mobile-section);}
   .edition-section h2 {font-size:var(--mobile-heading);line-height:1.16;margin-bottom:16px;}
   .edition-section h3 {font-size:var(--mobile-subheading);line-height:1.15;}
-  
+
   #amostra .sample-intro {padding:var(--mobile-card);}
   #amostra .sample-card {row-gap:16px;}
   .edition-section :is(.sample-prompt,.sample-benefits li,.sample-intro p:last-child,.bonus p:not(.eyebrow),.collection-steps p,.guarantee-card p,.faq-item p) {font-size:var(--mobile-body);line-height:1.48;}
