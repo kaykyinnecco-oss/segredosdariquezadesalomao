@@ -159,7 +159,10 @@
     steps.append(item);
   });
   delivery.append(deliveryTitle, steps);
-  section.replaceChildren(card);
+  const support = document.getElementById("faq-suporte").cloneNode(true);
+  support.removeAttribute("id");
+  support.classList.add("support-card-compact");
+  section.replaceChildren(card, support);
   document.getElementById("delivery-content").append(delivery);
 })();
 

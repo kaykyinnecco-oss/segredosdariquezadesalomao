@@ -6,7 +6,7 @@
   window.salomaoCommerceReady = true;
 
   const preferenceKey = "colecao-salomao.marketing.v1";
-  const dialog = document.querySelector("#privacy-dialog");
+  const banner = document.querySelector("#privacy-banner");
   const notice = document.querySelector("#checkout-notice");
   const settings = document.querySelector("[data-privacy-settings]");
   const pixelId = String(config.pixelId || "");
@@ -78,12 +78,29 @@
     }
   }
 
-  function updateStatus() {
-    const status = dialog?.querySelector("[data-consent-status]");
-    if (!status) return;
-    status.textContent = preference === "allow"
-      ? config.copy.consentAllowed
-      : config.copy.consentDenied;
+  let hideTimer;
+  let openedFromFooter = false;
+  const dock = document.getElementById("purchase-dock");
+  new ResizeObserver(() => {
+    banner.style.setProperty("--dock-height", dock.offsetHeight + "px");
+  }).observe(dock);
+
+  function showBanner(fromFooter = false) {
+    clearTimeout(hideTimer);
+    banner.hidden = false;
+    banner.inert = false;
+    banner.classList.remove("is-closing");
+    openedFromFooter = fromFooter;
+    if (fromFooter) banner.querySelector("[data-consent=deny]").focus({preventScroll:true});
+  }
+
+  function hideBanner() {
+    if (banner.hidden || banner.inert) return;
+    if (openedFromFooter && banner.contains(document.activeElement)) settings.focus({preventScroll:true});
+    banner.inert = true;
+    banner.classList.add("is-closing");
+    const delay = matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 200;
+    hideTimer = setTimeout(() => { banner.hidden = true; }, delay);
   }
 
   function savePreference(value) {
@@ -93,22 +110,19 @@
       // O armazenamento pode estar bloqueado pela navegação privada.
     }
     applyPreference(value);
-    updateStatus();
-    dialog?.close();
+    hideBanner();
   }
 
-  settings?.addEventListener("click", () => {
-    updateStatus();
-    dialog?.showModal();
-  });
-  dialog?.querySelector("[data-close-privacy]")?.addEventListener("click", () => dialog.close());
-  dialog?.querySelector('[data-consent="allow"]')?.addEventListener("click", () => savePreference("allow"));
-  dialog?.querySelector('[data-consent="deny"]')?.addEventListener("click", () => savePreference("deny"));
+  settings?.addEventListener("click", () => showBanner(true));
+  banner.querySelector("[data-close-privacy]").addEventListener("click", () => savePreference("deny"));
+  for (const button of banner.querySelectorAll("[data-consent]")) {
+    button.addEventListener("click", () => savePreference(button.dataset.consent));
+  }
 
   window.addEventListener("storage", (event) => {
     if (event.key !== preferenceKey && event.key !== null) return;
     applyPreference(readPreference());
-    updateStatus();
+    if (preference !== null) hideBanner();
   });
 
   function checkoutDestination() {
@@ -161,11 +175,18 @@
     leavingForCheckout = false;
     if (!event.persisted) return;
     applyPreference(readPreference());
-    updateStatus();
+    if (preference !== null) hideBanner();
   });
 
   const savedPreference = readPreference();
   applyPreference(savedPreference);
-  updateStatus();
-  if (savedPreference === null && /^\d+$/.test(pixelId)) dialog?.showModal();
+  function scheduleBanner() {
+    setTimeout(() => {
+      if (preference === null && banner.hidden) showBanner();
+    }, 1200);
+  }
+  if (savedPreference === null && /^\d+$/.test(pixelId)) {
+    if (document.readyState === "complete") scheduleBanner();
+    else window.addEventListener("load", scheduleBanner, {once:true});
+  }
 })();
