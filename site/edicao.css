@@ -264,8 +264,8 @@
   main .proof-block figcaption {font-size:var(--mobile-note);line-height:1.35;}
   .edition-section,#amostra.edition-section {padding-block:var(--mobile-section);}
   .edition-section h2 {font-size:var(--mobile-heading);line-height:1.16;margin-bottom:16px;}
-  .edition-section h3 {font-size:var(--mobile-subheading);line-height:1.22;}
-  #amostra .sample-intro h3 {font-size:21px;line-height:1.18;}
+  .edition-section h3 {font-size:var(--mobile-subheading);line-height:1.15;}
+  
   #amostra .sample-intro {padding:var(--mobile-card);}
   #amostra .sample-card {row-gap:16px;}
   .edition-section :is(.sample-prompt,.sample-benefits li,.sample-intro p:last-child,.bonus p:not(.eyebrow),.collection-steps p,.guarantee-card p,.faq-item p) {font-size:var(--mobile-body);line-height:1.48;}
@@ -393,12 +393,9 @@ main #amostra.edition-section,.urgency-section {padding-top:calc(var(--section-i
 .collection-payments img {height:20px;object-fit:contain;}
 .collection-payments img[alt="Pix"] {width:20px;}
 main :is(h1,h2,h3),main .edition-heading h1 {letter-spacing:-.01em;line-height:1.15;}
-#amostra .sample-intro h3 {font-size:clamp(22px,2vw,24px);line-height:1.15;}
+
 @media(max-width:1023px) {
   #amostra .sample-intro {padding:12px 16px 8px;}
-}
-@media(min-width:1024px) {
-  .sample-preview {padding-top:12px;}
 }
 @media(min-width:768px) {
   .footer {padding-bottom:var(--dock-height,calc(69px + env(safe-area-inset-bottom,0px)));}

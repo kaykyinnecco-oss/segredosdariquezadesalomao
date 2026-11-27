@@ -43,7 +43,7 @@
 .sample-preview {position:relative;isolation:isolate;min-width:0;background:white;border:1px solid var(--line);border-radius:20px;box-shadow:0 3px 8px #162e2110,0 16px 36px -24px #14382055;}
 .sample-intro {padding:20px 20px 14px;}
 .sample-label {font-size:10px;line-height:1.4;font-weight:750;letter-spacing:.14em;color:var(--green);}
-#amostra .sample-intro h3 {margin:6px 0 8px;font-size:clamp(23px,2.3vw,32px);line-height:1.08;}
+#amostra .sample-intro h3 {margin:6px 0 8px;font-size:clamp(22px,2vw,24px);line-height:1.15;}
 .sample-intro p:last-child {font-size:14px;line-height:1.45;color:var(--body);}
 .sg-gallery {min-width:0;--sg-stage:#f3f4f0;--paper:white;--sg-ink:var(--ink);--sg-line:var(--line);--green-900:var(--deep);}
 .sg-gallery svg {width:18px;height:18px;display:block;}
@@ -76,7 +76,7 @@
   #amostra .sample-card {max-width:none;grid-template-columns:1.12fr 1fr;align-items:center;gap:26px 40px;}
   #amostra .sample-kit {width:min(100%,520px);grid-column:1;grid-row:1;}
   .sample-details {grid-column:2;grid-row:1;max-width:410px;padding:0;}
-  .sample-preview {grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:minmax(190px,1fr) minmax(0,3.2fr);align-items:center;gap:22px;padding:20px;}
+  .sample-preview {grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:minmax(190px,1fr) minmax(0,3.2fr);align-items:center;gap:22px;padding:12px 20px 20px;}
   .sample-intro {padding:0;}
   .sg-track {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;transform:none;}
   .sg-copy {display:none;}
