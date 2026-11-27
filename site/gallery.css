@@ -56,8 +56,8 @@
 .sg-page {width:100%;height:auto;aspect-ratio:var(--sheet-ratio,949/1343);object-fit:contain;user-select:none;}
 .sg-expand {position:absolute;bottom:5px;right:5px;display:grid;place-items:center;width:24px;height:24px;background:#fffffff2;color:var(--deep);border-radius:50%;box-shadow:0 1px 4px #0002;}
 .sg-caption {display:grid;gap:3px;margin-top:9px;line-height:1.35;font-size:clamp(10px,2.9vw,13px);}
-.sg-title {font-weight:700;color:var(--ink);letter-spacing:-.025em;}
-.sg-description {color:var(--muted);}
+.sg-title {font-weight:700;color:var(--ink);font-size:14px;letter-spacing:-.01em;}
+.sg-description {font-size:13px;color:var(--muted);}
 .sg-navigation {display:flex;align-items:center;justify-content:center;padding:0 0 6px;}
 .sg-dot,.sg-control {display:inline-grid;place-items:center;border:0;background:transparent;color:var(--ink);}
 .sg-control {width:44px;height:44px;}

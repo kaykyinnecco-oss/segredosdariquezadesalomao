@@ -133,7 +133,7 @@
   .collection-card {
     display:grid;
     grid-template-columns:clamp(88px,26vw,126px) minmax(0,1fr);
-    grid-template-areas:"art title" "items items" "price price" "buy buy" "note note" "trust trust";
+    grid-template-areas:"badge badge" "art title" "items items" "price price" "buy buy" "note note" "trust trust";
     gap:8px;align-items:center;padding:24px 14px 14px;overflow:visible;
   }
   .collection-covers {grid-area:art;justify-self:start;margin:6px 0;width:100%;max-width:none;}
@@ -159,7 +159,7 @@
 @media(prefers-reduced-motion:reduce){.urgency-card::after,.urgency-card .digits{animation:none;}.urgency-card::after{opacity:0;}}
 
 .launch-dot {display:inline-block;margin-inline:.32em;vertical-align:.04em;}
-.buy:is([data-buy],.sample-link) {overflow:hidden;isolation:isolate;}
+.buy[data-buy] {overflow:hidden;isolation:isolate;white-space:nowrap;min-height:52px;background:#0FA04B;}
 @media(prefers-reduced-motion:no-preference) {
   .buy:is([data-buy],.sample-link) {animation:purchase-pulse 4.4s ease-in-out infinite;}
   .buy:is([data-buy],.sample-link)::after {
@@ -167,7 +167,7 @@
     background:linear-gradient(108deg,transparent 36%,#ffffff30 50%,transparent 64%);
     animation:purchase-shine 4.4s ease-in-out infinite;
   }
-  @keyframes purchase-pulse {0%,55%,100%{scale:1} 72%{scale:1.012}}
+  @keyframes purchase-pulse {0%,100%{box-shadow:0 2px 0 #0a422c,0 0 0 0 #0fa04b24} 65%{box-shadow:0 2px 0 #0a422c,0 0 0 5px #0fa04b06}}
   @keyframes purchase-shine {0%,48%{transform:translateX(-100%)} 80%,100%{transform:translateX(100%)}}
 }
 
@@ -217,7 +217,7 @@
 .collection-card {--card-inset:32px;}
 .collection-badge {
   justify-self:stretch;width:auto;margin:calc(-1 * var(--card-inset)) calc(-1 * var(--card-inset)) 4px;
-  border-radius:0;padding:10px 12px;
+  grid-area:badge; margin-block:0 4px; border-radius:0;padding:7px 10px;font-size:12.5px;line-height:1.2;white-space:nowrap;
 }
 @media(max-width:767px) {
   .urgency-section {padding:20px 12px 0;}
@@ -229,11 +229,7 @@
   .time-unit small {font-size:12px;}
   .colon {font-size:18px;line-height:1;}
   #plano {padding-top:24px;}
-  .collection-badge {
-    position:absolute;top:-1.5px;left:50%;transform:translate(-50%,-50%);
-    width:max-content;max-width:calc(100% - 12px);margin:0;
-    padding:5px 10px;border-radius:999px;font-size:clamp(12px,3.3vw,14px);
-  }
+
   .edition-section h2 {font-size:25px;}
   .edition-section h3 {font-size:20px;}
   .closing h2 {font-size:28px;}
@@ -245,7 +241,7 @@
 
 .sample-kit {aspect-ratio:auto;}
 .sample-kit > img {width:100%;height:auto;display:block;}
-.edition-art .edition-kit img {aspect-ratio:auto;}
+.edition-art .edition-kit img {aspect-ratio:auto 580/336;}
 @media (max-width:767px) {
   .collection-card {grid-template-columns:minmax(0, 44%) minmax(0,1fr);}
 }
@@ -262,7 +258,7 @@
   }
   .edition-hero .edition-opening {row-gap:20px;}
   .edition-hero .edition-deck {font-size:var(--mobile-body);line-height:1.48;margin-bottom:16px;}
-  .edition-hero .edition-action .buy {min-height:49px;padding:11px 13px;font-size:18px;}
+  .edition-hero .edition-action .buy {min-height:52px;padding:11px 13px;font-size:18px;}
   main .proof-block {padding-block:12px;}
   main .proof-block blockquote {font-size:16px;line-height:1.32;}
   main .proof-block figcaption {font-size:var(--mobile-note);line-height:1.35;}
@@ -304,19 +300,14 @@
   #purchase-dock > div {padding-inline:8px 10px;border-right:1px solid var(--line);white-space:nowrap;}
   #purchase-dock strong {font-size:18px;line-height:1.2;color:var(--deep);}
   #purchase-dock small {font-size:12px;line-height:1.35;color:var(--muted);}
-  #purchase-dock .buy {min-height:48px;max-width:none;padding:8px;font-size:16px;line-height:1.2;white-space:nowrap;}
+  #purchase-dock .buy {min-height:52px;max-width:none;padding:8px;font-size:16px;line-height:1.2;white-space:nowrap;}
 }
 
 @media (max-width:767px) {
-  body:has(#purchase-dock:not([hidden])) .footer {
-    padding-bottom:calc(82px + env(safe-area-inset-bottom,0px));
-  }
+  .footer {padding-bottom:calc(var(--dock-height,66px) + env(safe-area-inset-bottom,0px));}
 }
 
-@media (max-width:767px) and (prefers-reduced-motion:no-preference) {
-  .edition-hero .edition-action .buy {animation:hero-cta-pulse 2.8s ease-in-out infinite;}
-  @keyframes hero-cta-pulse {0%,100% {scale:1;} 50% {scale:1.025;}}
-}
+
 
 .support-card {
   display:flex; align-items:center; gap:12px;
@@ -340,23 +331,22 @@
 }
 .privacy-banner {
   position:fixed; z-index:5; left:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px));
-  width:min(520px,calc(100% - 32px)); padding:14px 16px;
+  width:min(420px,calc(100% - 32px)); padding:6px 10px;
   color:var(--body); background:white; border:1px solid var(--line); border-radius:16px;
   box-shadow:0 14px 36px -12px #0f3d2e44,0 2px 8px #0001;
-  font-size:13px; line-height:1.4;
+  font-size:12px; line-height:16px;
 }
 body:has(#purchase-dock:not([hidden])) .privacy-banner {bottom:calc(var(--dock-height,72px) + 12px);}
-.privacy-banner h2 {display:flex;align-items:center;gap:6px;margin:0 28px 4px 0;font-size:15px;letter-spacing:0;}
-.privacy-banner h2 svg {color:var(--green);}
+.privacy-banner p {padding-right:22px;}
+.privacy-banner.is-collapsed {width:auto;padding:0;border:0;border-radius:12px;}
+.privacy-banner.is-collapsed > :not(.privacy-chip) {display:none;}
+.privacy-chip {display:flex;align-items:center;gap:6px;height:36px;padding:0 12px;border:1px solid var(--line);border-radius:12px;background:white;color:var(--deep);font-weight:700;}
 .privacy-close {
-  position:absolute;top:2px;right:4px;width:32px;height:32px;
+  position:absolute;top:0;right:2px;width:24px;height:24px;
   border:0;background:transparent;color:var(--muted);font:400 21px/1 system-ui;
 }
-@media (min-width:1024px) {
-  .privacy-banner {width:min(520px,calc(50% - 244px));}
-}
-.privacy-mobile {display:none;}
-.privacy-options {display:flex;gap:8px;margin-top:8px;}
+
+.privacy-options {display:flex;gap:8px;margin-top:4px;}
 .privacy-options button {
   min-width:96px;min-height:36px;padding:4px 12px;border:1px solid var(--green);
   border-radius:9px;background:white;color:var(--deep);font-size:13px;font-weight:700;
@@ -377,16 +367,39 @@ body:has(#purchase-dock:not([hidden])) .privacy-banner {bottom:calc(var(--dock-h
   .support-card-compact strong {font-size:14px;}
   .privacy-banner {
     left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));
-    width:calc(100% - 24px);padding:5px 12px;font-size:12.5px;line-height:1.25;
+    width:calc(100% - 24px);padding:5px 8px;
   }
   body:has(#purchase-dock:not([hidden])) .privacy-banner {bottom:calc(var(--dock-height,62px) + 16px + env(safe-area-inset-bottom,0px));}
-  .privacy-banner h2 {font-size:13px;margin-bottom:2px;}
-  .privacy-banner p {padding-inline-end:14px;}
-  .privacy-mobile {display:inline;}
-  .privacy-desktop {display:none;}
-  .privacy-options {margin-top:4px;}
-  .privacy-options button {flex:1;min-height:40px;}
+  .privacy-options button {flex:1;}
+  .privacy-banner p {padding-right:0;}
+  .privacy-options {margin-right:26px;}
+  .privacy-close {top:auto;bottom:10px;right:5px;}
 }
 @media (hover:none) and (prefers-reduced-motion:no-preference) {
   .support-card:active {transform:scale(.98);}
+}
+
+/* Cada seção contribui com metade do intervalo entre os conteúdos. */
+:root {--section-inset:36px;}
+@media(max-width:767px) {
+  :root {--section-inset:20px;}
+  .collection-card {--card-inset:14px;}
+}
+main .edition-section, main #amostra.edition-section {padding-block:var(--section-inset);}
+main #amostra.edition-section,.urgency-section {padding-top:calc(var(--section-inset) - 12px);}
+#plano {padding-block:20px var(--section-inset);}
+.collection-card {padding-inline:var(--card-inset);padding-top:0;overflow:hidden;}
+.support-card-compact {margin-top:16px;}
+.collection-payments img {height:20px;object-fit:contain;}
+.collection-payments img[alt="Pix"] {width:20px;}
+main :is(h1,h2,h3),main .edition-heading h1 {letter-spacing:-.01em;line-height:1.15;}
+#amostra .sample-intro h3 {font-size:clamp(22px,2vw,24px);line-height:1.15;}
+@media(max-width:1023px) {
+  #amostra .sample-intro {padding:12px 16px 8px;}
+}
+@media(min-width:1024px) {
+  .sample-preview {padding-top:12px;}
+}
+@media(min-width:768px) {
+  .footer {padding-bottom:var(--dock-height,calc(69px + env(safe-area-inset-bottom,0px)));}
 }

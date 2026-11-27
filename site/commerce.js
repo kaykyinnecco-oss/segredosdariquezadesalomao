@@ -79,24 +79,52 @@
   }
 
   let hideTimer;
-  let openedFromFooter = false;
+  let returnFocus;
+  let collapseTimer;
+  let openingScroll;
+  const chip = banner.querySelector(".privacy-chip");
+
+  function collapse() {
+    if (banner.hidden || banner.inert || !chip.hidden || banner.querySelector(":focus-visible")) return;
+    clearTimeout(collapseTimer);
+    banner.classList.add("is-collapsed");
+    chip.hidden = false;
+  }
+
+  function scheduleCollapse() {
+    clearTimeout(collapseTimer);
+    collapseTimer = setTimeout(collapse, 6000);
+  }
+
+  window.addEventListener("scroll", () => {
+    if (Math.abs(window.scrollY - openingScroll) > 300) collapse();
+  }, {passive:true});
+  banner.addEventListener("focusout", scheduleCollapse);
+  chip.addEventListener("click", () => showBanner(true));
+
   const dock = document.getElementById("purchase-dock");
   new ResizeObserver(() => {
-    banner.style.setProperty("--dock-height", dock.offsetHeight + "px");
+    if (dock.offsetHeight) document.documentElement.style.setProperty("--dock-height", dock.offsetHeight + "px");
   }).observe(dock);
 
-  function showBanner(fromFooter = false) {
+  function showBanner(manual = false) {
     clearTimeout(hideTimer);
     banner.hidden = false;
     banner.inert = false;
     banner.classList.remove("is-closing");
-    openedFromFooter = fromFooter;
-    if (fromFooter) banner.querySelector("[data-consent=deny]").focus({preventScroll:true});
+    chip.hidden = true;
+    banner.classList.remove("is-collapsed");
+    openingScroll = window.scrollY;
+    returnFocus = manual ? settings : null;
+    scheduleCollapse();
+    if (!manual && window.scrollY > 300) collapse();
+    if (manual) banner.querySelector("[data-consent=deny]").focus({preventScroll:true});
   }
 
   function hideBanner() {
     if (banner.hidden || banner.inert) return;
-    if (openedFromFooter && banner.contains(document.activeElement)) settings.focus({preventScroll:true});
+    clearTimeout(collapseTimer);
+    if (returnFocus && banner.contains(document.activeElement)) returnFocus.focus({preventScroll:true});
     banner.inert = true;
     banner.classList.add("is-closing");
     const delay = matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 200;

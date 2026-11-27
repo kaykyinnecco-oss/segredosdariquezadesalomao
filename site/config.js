@@ -10,7 +10,7 @@ window.SITE_CONFIG = {
 
   productId: "biblioteca-777-salomao",
   productName: "Os Segredos da Riqueza de Salomão",
-  subtitle: "A Biblioteca da Sabedoria Financeira com 80 lições ilustradas em PDF.",
+  subtitle: "A Biblioteca da Sabedoria Financeira com 80 segredos ilustrados em PDF.",
   pixelId: "2429955871112248",
   images: {
     brand: "assets/media/marca.webp",
@@ -23,9 +23,9 @@ window.SITE_CONFIG = {
   },
   guaranteeEnabled: true,
   samples: [
-    { folio: "Lição 01", description: "Descubra quanto sobra no mês.", title: "Gaste menos do que ganha", src: "assets/media/folheie-01.webp", full: "assets/media/folheie-01-original.webp", width: 949, height: 1343 },
-    { folio: "Lição 04", description: "Evite a compra por impulso.", title: "Faça uma pausa antes de comprar", src: "assets/media/folheie-04.webp", full: "assets/media/folheie-04-original.webp", width: 950, height: 1342 },
-    { folio: "Lição 07", description: "Dê o primeiro passo da sua reserva.", title: "Comece pela primeira meta de reserva", src: "assets/media/folheie-07.webp", full: "assets/media/folheie-07-original.webp", width: 950, height: 1342 }
+    { folio: "Segredo 01", description: "Descubra quanto sobra no mês.", title: "Gaste menos do que ganha", src: "assets/media/folheie-01.webp", full: "assets/media/folheie-01-original.webp", width: 949, height: 1343 },
+    { folio: "Segredo 04", description: "Evite a compra por impulso.", title: "Faça uma pausa antes de comprar", src: "assets/media/folheie-04.webp", full: "assets/media/folheie-04-original.webp", width: 950, height: 1342 },
+    { folio: "Segredo 07", description: "Dê o primeiro passo da sua reserva.", title: "Comece pela primeira meta de reserva", src: "assets/media/folheie-07.webp", full: "assets/media/folheie-07-original.webp", width: 950, height: 1342 }
   ],
   galleryLabels: {
     region: "Páginas de amostra",
@@ -42,18 +42,18 @@ window.SITE_CONFIG = {
     { label: "Bônus 02", title: "Os 100 Códigos da Mente Milionária", description: "Reconheça o que leva você a comprar por impulso e faça a próxima escolha com mais calma.", image: "assets/media/bonus-2.webp", width: 480, height: 679 }
   ],
   offer: {
-    "badge": "PLANO COMPLETO • 2 BÔNUS • ACESSO VITALÍCIO",
+    "badge": "2 BÔNUS • ACESSO VITALÍCIO",
     "title": "Plano Completo + 2 Bônus",
     "benefits": [
-      "Lições práticas para organizar suas contas do mês",
+      "Segredos práticos para organizar suas contas do mês",
       "Leitura no celular e impressão em A4"
     ],
-    "cta": "Quero acessar Os Segredos da Riqueza de Salomão",
+    "cta": "Quero acessar agora",
     "guarantee": "Garantia de 7 dias",
     "paymentMethods": [
       {
         "name": "Pix",
-        "image": "assets/media/pagamento/pix.svg"
+        "image": "assets/media/pagamento/pix.svg?v=simbolo"
       },
       {
         "name": "Visa",
@@ -82,7 +82,7 @@ window.SITE_CONFIG = {
         "text": "Abra o primeiro segredo no celular ou imprima a página para anotar seus gastos."
       }
     ],
-    "mainItem": "Livro principal com 80 lições ilustradas em PDF"
+    "mainItem": "Livro principal com 80 segredos ilustrados em PDF"
   },
   usagePhotos: [
     {
@@ -107,7 +107,7 @@ window.SITE_CONFIG = {
       "image": "assets/media/leitores/cotidiano-03.webp",
       "width": 848,
       "height": 1060,
-      "imageAlt": "Homem observa quatro lições impressas e o livro encadernado sobre a mesa."
+      "imageAlt": "Homem observa quatro segredos impressos e o livro encadernado sobre a mesa."
     },
     {
       "image": "assets/media/leitores/exemplar-5.webp",
@@ -119,7 +119,7 @@ window.SITE_CONFIG = {
       "image": "assets/media/leitores/cotidiano-05.webp",
       "width": 848,
       "height": 1060,
-      "imageAlt": "Mulher apresenta a capa no tablet ao lado do caderno de prática e das lições impressas."
+      "imageAlt": "Mulher apresenta a capa no tablet ao lado do caderno de prática e dos segredos impressos."
     },
     {
       "image": "assets/media/leitores/exemplar-4.webp",
@@ -137,7 +137,7 @@ window.SITE_CONFIG = {
       "image": "assets/media/leitores/cotidiano-07.webp",
       "width": 848,
       "height": 1060,
-      "imageAlt": "Tablet ao lado do livro aberto nas lições sobre gastos recorrentes e a primeira meta de reserva."
+      "imageAlt": "Tablet ao lado do livro aberto nos segredos sobre gastos recorrentes e a primeira meta de reserva."
     },
     {
       "image": "assets/media/leitores/exemplar-3.webp",
@@ -149,7 +149,7 @@ window.SITE_CONFIG = {
       "image": "assets/media/leitores/cotidiano-08.webp",
       "width": 848,
       "height": 1060,
-      "imageAlt": "Mulher segura o celular na cozinha ao lado da lição impressa sobre o custo das parcelas."
+      "imageAlt": "Mulher segura o celular na cozinha ao lado do segredo impresso sobre o custo das parcelas."
     },
     {
       "image": "assets/media/leitores/cotidiano-09.webp",
@@ -231,7 +231,7 @@ window.SITE_CONFIG = {
         "full": "assets/media/feedbacks/produto-atual-06.webp",
         "width": 941,
         "height": 1672,
-        "imageAlt": "Conversa de Juliana Rodrigues sobre a capa e a lição sobre gastos recorrentes."
+        "imageAlt": "Conversa de Juliana Rodrigues sobre a capa e o segredo sobre gastos recorrentes."
       },
       {
         "name": "Maria Silva",
@@ -279,7 +279,7 @@ window.SITE_CONFIG = {
         "full": "assets/media/feedbacks/produto-atual-12.webp",
         "width": 941,
         "height": 1672,
-        "imageAlt": "Conversa de Mariana Costa sobre as 80 lições e os bônus."
+        "imageAlt": "Conversa de Mariana Costa sobre os 80 segredos e os bônus."
       },
       {
         "name": "Bruno Carvalho",
@@ -287,7 +287,7 @@ window.SITE_CONFIG = {
         "full": "assets/media/feedbacks/produto-atual-13.webp",
         "width": 941,
         "height": 1672,
-        "imageAlt": "Conversa de Bruno Carvalho sobre a variedade das lições."
+        "imageAlt": "Conversa de Bruno Carvalho sobre a variedade dos segredos."
       },
       {
         "name": "Diego Martins",
@@ -358,7 +358,7 @@ window.SITE_CONFIG = {
     headlineAccent: "seguir e melhorar a sua vida financeira.",
     heroSupport: "Segredos bíblicos de Salomão em um passo a passo para consultar onde estiver e colocar as contas em ordem.",
     heroNote: "Sabedoria prática para a sua vida financeira.",
-    heroCTA: "Quero acessar Os Segredos da Riqueza de Salomão",
+    heroCTA: "Quero acessar agora",
     ribbonMethod: "Acesso imediato · Livro completo",
     ribbonBonus: "Impressão em A4 · Baseado na Bíblia",
     ribbonExtras: "Mais 2 bônus por tempo limitado",
