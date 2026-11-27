@@ -352,6 +352,9 @@ body:has(#purchase-dock:not([hidden])) .privacy-banner {bottom:calc(var(--dock-h
   position:absolute;top:2px;right:4px;width:32px;height:32px;
   border:0;background:transparent;color:var(--muted);font:400 21px/1 system-ui;
 }
+@media (min-width:1024px) {
+  .privacy-banner {width:min(520px,calc(50% - 244px));}
+}
 .privacy-mobile {display:none;}
 .privacy-options {display:flex;gap:8px;margin-top:8px;}
 .privacy-options button {
@@ -374,7 +377,7 @@ body:has(#purchase-dock:not([hidden])) .privacy-banner {bottom:calc(var(--dock-h
   .support-card-compact strong {font-size:14px;}
   .privacy-banner {
     left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));
-    width:calc(100% - 24px);padding:6px 12px;font-size:12.5px;line-height:1.25;
+    width:calc(100% - 24px);padding:5px 12px;font-size:12.5px;line-height:1.25;
   }
   body:has(#purchase-dock:not([hidden])) .privacy-banner {bottom:calc(var(--dock-height,62px) + 16px + env(safe-area-inset-bottom,0px));}
   .privacy-banner h2 {font-size:13px;margin-bottom:2px;}
