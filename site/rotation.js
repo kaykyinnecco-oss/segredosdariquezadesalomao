@@ -18,17 +18,7 @@
     track.className = "gallery-track";
     group.className = "gallery-group";
     for (const entry of entries.filter(item => item.image)) {
-      const image = imageFor(entry);
-      if (id === "usage-gallery") {
-        const picture = document.createElement("picture");
-        const source = document.createElement("source");
-        source.media = "(max-width: 767px)";
-        source.srcset = entry.image.replace(".webp", "-compacta.webp");
-        picture.append(source, image);
-        group.append(picture);
-      } else {
-        group.append(image);
-      }
+      group.append(imageFor(entry));
     }
     track.append(group);
     const duplicate = group.cloneNode(true);

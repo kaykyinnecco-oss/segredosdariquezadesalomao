@@ -100,7 +100,7 @@
   function loadGalleries() {
     if (galleriesRequested) return;
     galleriesRequested = true;
-    for (const file of ["offer.js?v=3", "rotation.js"]) {
+    for (const file of ["offer.js?v=3", "rotation.js?v=originais-1"]) {
       const script = document.createElement("script");
       script.async = false;
       script.src = file;
